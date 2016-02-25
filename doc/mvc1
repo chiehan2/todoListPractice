@@ -1,1 +1,46 @@
+**reference:**
+JavaScript Web Applications by Alex MacCaw
+
+**流程:**
+使用者操作觸發 controller 的事件處理器
+controller 用使用者的操作資料，從 model 建立新的 model
+controller 用新的 model 更新 view 的內容
+
+**model:**
+model 和 controller、view 無關
+
+var user = User.name("foo");
+user.speak:
+
+**view:**
+和 controller、view 無關
+由 HTML、CSS、js template 構成，不包含程式邏輯，只有簡單的條件式陳述句
+view 的程式邏輯要放在另一個獨立的程式，叫 helper
+
+不要有 tag soup
+例如
+<div>
+  <script>
+    function hello() {};
+  </script>
+</div>
+
+要這樣
+
+// helper.js
+var helper = {};
+helper.hello = function() {};
+
+// view.html
+<div>
+  helper.hello();
+</div>
+
+**controller**
+model 和 view 的橋樑，接收從 view 傳過來的事件和輸入，用 model 進行處理
+
+一開始載入網頁時，controler 會在 view 上設定好所有的 event listener
+
+**專有名詞:**
+ORM object-relational mapper 物件關聯式對應
 
